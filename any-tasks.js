@@ -1,5 +1,5 @@
 
-// Growth of a Population (7 kyu)
+/* Growth of a Population (7 kyu) */
 
 function nbYear(p0, percent, aug, p) {
     let n = 0
@@ -26,7 +26,7 @@ function stringToArray(string){
 stringToArray("I love arrays they are my favorite")
 
 
-// Beginner - Reduce but Grow (8 kyu)
+/* Beginner - Reduce but Grow (8 kyu) */
 // Example: [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
 
 const grow = (arr) => {
@@ -42,7 +42,7 @@ const growTwo = x => x.reduce((a, b) => a * b)
 console.log(growTwo([2, 2, 2, 2, 2, 2]))
 
 
-// Quarter of the year
+/* Quarter of the year */
 // Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
 
 const quarterOf = (month) => {
@@ -69,3 +69,40 @@ console.log(quarterOf(4))
 // best practice:
 const quarterOfTwo = m => Math.ceil(m/3);
 console.log(quarterOfTwo(4))
+
+
+/* Sum Mixed Array - 8 */
+// Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+// Return your answer as a number.
+
+const sumMix = x => x.reduce((sum, current) => sum + parseInt(current), 0)
+
+console.log(sumMix([9, 3, '7', '3'])) // 22
+console.log(sumMix(['5', '0', 9, 3, 2, 1, '9', 6, 7])) // 42
+console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2,'0'])) // 41
+
+
+/* Counting sheep... - 8 */
+/*
+const countSheeps = arrayOfSheep => {
+    arrayOfSheep.reduce((sum, current) => {
+        current ? sum + 1 : console.log(current)
+        return sum
+    }, 0)
+} */
+
+const countSheeps = arrayOfSheep => {
+    arrayOfSheep.reduce((sum, current) => {
+        console.log(sum)
+        current ? sum + 1 : console.log(current)
+        console.log(sum)
+    }, 0)
+}
+
+console.log(countSheeps(
+    [true, true,  true,  false,
+    true,  true,  true,  true ,
+    true,  false, true,  false,
+    true,  false, false, true ,
+    true,  true,  true,  true ,
+    false, false, true,  true]))
