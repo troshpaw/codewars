@@ -1,3 +1,4 @@
+1.
 // FILE: 5-your-order-please-6.js
 // Как работает sort(...)?
 ...
@@ -10,4 +11,16 @@ function order(words){
 }
 
 console.log(order("4of Fo1r pe6ople g3ood th5e the2"))
+...
+
+
+2.
+// FILE: 8-sum-of-digits-6.js
+// Как это работает?
+...
+// BEST PRACTICES:
+
+function digital_root(n) {
+    return (n - 1) % 9 + 1;
+}
 ...
