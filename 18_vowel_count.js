@@ -2,7 +2,8 @@
 // Vowel Count
 
 function getCount(str) {
-    return str.match(/[aeiou]/g, '').length;
+    let vowels = str.match(/[aeiou]/g, '');
+    return vowels !== null ? str.match(/[aeiou]/g, '').length : 0;
 }
 
 console.log(getCount("abracadabra"));
