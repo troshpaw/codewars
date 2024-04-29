@@ -2,6 +2,7 @@
 // Stop the Zombie Apocalypse! (level 5)
 // https://www.codewars.com/kata/5464d6811e0c08e574000b76
 
+// Var №1:
 function findZombies(matrix) {
     
     let zeroArr = [...matrix].map(element => element.map(innerElement => innerElement = 0));
@@ -14,23 +15,23 @@ function findZombies(matrix) {
 
     while (end === 0) {
 
-        if (matrix[x][y] === matrix[x][y+1]) {
-            matrix[x][y] === 'x';
+        if (y <= (matrix[0].length - 2) && matrix[x][y] === matrix[x][y+1]) {
+            matrix[x][y] = 'x';
             y += 1;
             console.log(x, y);
             zeroArr[x][y] = 1;
-        } else if (matrix[x][y] === matrix[x+1][y]) {
-            matrix[x][y] === 'x';
+        } else if (x <= (matrix.length - 2) && matrix[x][y] === matrix[x+1][y]) {
+            matrix[x][y] = 'x';
             x += 1;
             console.log(x, y);
             zeroArr[x][y] = 1;
-        } else if (matrix[x][y] === matrix[x][y-1]) {
-            matrix[x][y] === 'x';
+        } else if (y >= 1 && matrix[x][y] === matrix[x][y-1]) {
+            matrix[x][y] = 'x';
             y -= 1;
             console.log(x, y);
             zeroArr[x][y] = 1;
-        } else if (matrix[x][y] === matrix[x-1][y]) {
-            matrix[x][y] === 'x';
+        } else if (x >= 1 && matrix[x][y] === matrix[x-1][y]) {
+            matrix[x][y] = 'x';
             x -= 1;
             console.log(x, y);
             zeroArr[x][y] = 1;
@@ -41,25 +42,36 @@ function findZombies(matrix) {
     return zeroArr;
 };
 
-let numbers = [
-    [0, 0], [0, 1], [0, 2], [0, 3],
-    [1, 0], [1, 1], [1, 2], [1, 3],
-    [2, 0], [2, 1], [2, 2], [2, 3],
-    [3, 0], [3, 1], [3, 2], [3, 3],
+// Var №2:
+/*
+function findZombies(matrix) {
+    for (let x = 0; x <= matrix.length - 1; x++ ) {
+       for (let y = 0; y <= matrix.length[0] - 1; y++) {
+        console.log(matix[x][y]);
+       } 
+    }
+};
+*/
+
+let matrix = [
+    [ 1, 0, 0 ],
+    [ 1, 1, 1 ], 
+    [ 0, 0, 1 ], 
+    [ 0, 0, 1 ] 
 ];
+
+console.log(findZombies(matrix));
 
 /*
-let city = [
-    [9, 3, 9, 3],
-    [9, 3, 9, 9],
-    [9, 3, 3, 9],
-    [9, 9, 9, 9]
-]; 
+expected [ 
+    [ 1, 0, 0 ], 
+    [ 1, 1, 1 ], 
+    [ 0, 0, 1 ], 
+    [ 0, 0, 1 ] ] 
+    
+to deeply equal [ 
+    [ 1, 0, 0 ], 
+    [ 1, 1, 1 ], 
+    [ 1, 0, 1 ], 
+    [ 0, 0, 1 ] ]
 */
-let city = [
-    [8, 2, 3],
-    [8, 2, 3],
-    [1, 2, 8]
-];
-
-console.log(findZombies(city));
